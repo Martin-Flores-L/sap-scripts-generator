@@ -1,0 +1,24 @@
+[project]
+name = "sap_scripts_generator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "argparse>=1.4.0",
+    "fastapi[standard]>=0.116.1",
+    "flask>=3.1.1",
+    "gspread>=6.2.1",
+    "numpy>=2.3.2",
+    "openpyxl>=3.1.5",
+    "pandas>=2.3.1",
+    "pyautogui>=0.9.54",
+    "requests>=2.32.4",
+    "ruff>=0.12.8",
+    "streamlit>=1.48.0",
+    "uvicorn>=0.35.0",
+    "workbook>=1.1",
+    "xlrd>=2.0.2",
+    "xlsxwriter>=3.2.5",
+    "xlwings>=0.33.15",
+]
