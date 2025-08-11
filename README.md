@@ -27,7 +27,7 @@ Este sistema automatiza la generación de scripts VBS para operaciones SAP MB21,
 1. **Clona el repositorio**
 
    ```bash
-   git clone https://github.com/tu-usuario/sap-scripts-generator.git
+   git clone https://github.com/Martin-Flores-L/sap-scripts-generator.git
    cd sap-scripts-generator
    ```
 
