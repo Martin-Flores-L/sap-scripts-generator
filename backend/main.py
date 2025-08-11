@@ -1,4 +1,4 @@
-import fastapi
+from fastapi import FastAPI
 from fastapi import File, UploadFile, Form, HTTPException
 from fastapi.responses import JSONResponse
 import uvicorn
@@ -6,10 +6,10 @@ from typing import Optional
 from io import BytesIO
 
 # Importa las clases de los otros archivos
-from data_processor import DataProcessor
-from script_generators import MB21, MB22
+from .data_processor import DataProcessor
+from .script_generators import MB21, MB22
 
-app = fastapi.FastAPI(
+app = FastAPI(
     title="SAP Script Automation API",
     description="API para generar scripts VBS para automatización de SAP.",
     version="1.0.0"
@@ -163,4 +163,4 @@ async def create_solicitudes_script(
         raise HTTPException(status_code=500, detail=f"Ocurrió un error al procesar el archivo: {e}")
 
 if __name__ == "__main__":
-    uvicorn.run("main_api:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

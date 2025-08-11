@@ -1,24 +1,174 @@
 [project]
-name = "sap_scripts_generator"
+name = "sap-scripts-generator"
 version = "0.1.0"
-description = "Add your description here"
+description = "Complete SAP scripts generator with Streamlit frontend and FastAPI backend"
+authors = [
+    {name = "Martin Flores", email = "martinfloreslaynes@gmail.com"}
+]
 readme = "README.md"
-requires-python = ">=3.13"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+keywords = ["sap", "vbs", "automation", "streamlit", "fastapi"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Office/Business",
+    "Topic :: Software Development :: Code Generators",
+]
+
+# Dependencias básicas compartidas
 dependencies = [
-    "argparse>=1.4.0",
-    "fastapi[standard]>=0.116.1",
-    "flask>=3.1.1",
-    "gspread>=6.2.1",
-    "numpy>=2.3.2",
-    "openpyxl>=3.1.5",
     "pandas>=2.3.1",
-    "pyautogui>=0.9.54",
-    "requests>=2.32.4",
-    "ruff>=0.12.8",
-    "streamlit>=1.48.0",
-    "uvicorn>=0.35.0",
-    "workbook>=1.1",
-    "xlrd>=2.0.2",
+    "openpyxl>=3.1.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+# Dependencias específicas del frontend
+frontend = [
+    "streamlit>=1.28.0",
+    "requests>=2.31.0",
     "xlsxwriter>=3.2.5",
-    "xlwings>=0.33.15",
+]
+
+# Dependencias específicas del backend
+backend = [
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "python-multipart>=0.0.6",
+    "pydantic>=2.4.0",
+]
+
+# Herramientas de desarrollo
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "httpx>=0.25.0",
+    "black>=23.0.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+    "isort>=5.12.0",
+    "pre-commit>=3.0.0",
+]
+
+# Para instalar todo junto
+all = [
+    "sap-scripts-generator[frontend,backend,dev]"
+]
+
+# Solo producción (frontend + backend)
+prod = [
+    "sap-scripts-generator[frontend,backend]"
+]
+
+[project.urls]
+Homepage = "https://github.com/tu-usuario/sap-scripts-generator"
+Repository = "https://github.com/tu-usuario/sap-scripts-generator"
+Issues = "https://github.com/tu-usuario/sap-scripts-generator/issues"
+Documentation = "https://github.com/tu-usuario/sap-scripts-generator/blob/main/README.md"
+
+[project.scripts]
+# Scripts de línea de comandos opcionales
+sap-frontend = "frontend.streamlit_app:main"
+sap-backend = "backend.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Configuración de herramientas de desarrollo
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | examples
+)/
+'''
+
+[tool.hatch.build.targets.wheel]
+packages = ["backend"]
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[[tool.mypy.overrides]]
+module = [
+    "streamlit.*",
+    "openpyxl.*",
+    "xlsxwriter.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_functions = ["test_*"]
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--verbose",
+    "--tb=short",
+]
+markers = [
+    "frontend: marks tests as frontend tests",
+    "backend: marks tests as backend tests", 
+    "integration: marks tests as integration tests",
+    "slow: marks tests as slow",
+]
+asyncio_mode = "auto"
+
+[tool.coverage.run]
+source = ["frontend", "backend"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/conftest.py",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
 ]
