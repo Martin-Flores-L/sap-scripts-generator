@@ -2,6 +2,9 @@
 
 Este sistema automatiza la generación de scripts VBS para operaciones SAP MB21, eliminando el proceso manual tedioso y reduciendo errores. Los usuarios pueden cargar archivos Excel o crear datos interactivamente desde la web.
 
+Este proyecto esta enfocado para el usuario que no tiene acceso a herramientas avanzadas en SAP que pueden automatizar los procesos de creación de reservas - salida y entrada, modificaciones y adiciones. Sirve como base para proyectos con necesidades similares.
+
+
 ---
 
 ## ✨ Características Principales
@@ -10,8 +13,8 @@ Este sistema automatiza la generación de scripts VBS para operaciones SAP MB21,
 - **📁 Carga de Archivos Excel:** Procesa archivos existentes automáticamente.
 - **✏️ Editor Interactivo:** Crea y edita datos directamente en el navegador.
 - **🗜️ Descargas Flexibles:** Scripts individuales o paquete ZIP completo.
-- **🛡️ Manejo Robusto de Errores:** Feedback claro para cualquier problema.
-- **🔧 API RESTful:** Backend FastAPI escalable y bien documentado.
+problema.
+- **🔧 API RESTful:** Backend FastAPI.
 
 ---
 
@@ -19,7 +22,7 @@ Este sistema automatiza la generación de scripts VBS para operaciones SAP MB21,
 
 ### Prerequisitos
 
-- Python 3.8 o superior
+- Python 3.9 o superior
 - [UV](https://github.com/astral-sh/uv) (gestor de paquetes ultrarrápido)
 
 ### Instalación
@@ -27,7 +30,7 @@ Este sistema automatiza la generación de scripts VBS para operaciones SAP MB21,
 1. **Clona el repositorio**
 
    ```bash
-   git clone https://github.com/tu-usuario/sap-scripts-generator.git
+   git clone https://github.com/Martin-Flores-L/sap-scripts-generator.git
    cd sap-scripts-generator
    ```
 
@@ -62,16 +65,26 @@ Este sistema automatiza la generación de scripts VBS para operaciones SAP MB21,
 
 ### Emisión de Vales de Reserva (221/201)
 - Carga archivos Excel con datos de materiales
+
+![Ejemplo plantilla para emisiones cargando un .xlsx a la aplicación](readme_images\test_201_221.png.jpg)
+
 - Personaliza los datos necesarios para la generación de scripts
+<video src="readme_images/muestreo.mp4" width="640" height="360" controls></video>
+
 - Genera scripts VBS para crear vales en SAP MB21
+
+<video src="readme_images/script_execution.mp4" width="640" height="360" controls></video>
+
 - Soporte para movimientos 201 (entrada) y 221 (salida)
+
+
 
 ### Modificaciones de Vales (Próximamente)
 - Adición, modificación y eliminación de líneas
 - Finalización y devolución de vales
 - Scripts para SAP MB22
 
-### Reportes personalizados (MB25 - MB52)
+### Reportes personalizados (MB25 - MB52 - Próximamente)
 - Convertidos en Excel dependiendo a la necesidad, podrás configurarlo
 
 ---
@@ -107,22 +120,7 @@ sap-scripts-generator/
 
 ## 🤝 Contribuciones
 
-¡Las contribuciones son bienvenidas! Por favor:
-
-1. Haz fork del proyecto
-2. Crea una rama para tu feature  
-   ```bash
-   git checkout -b feature/nueva-funcionalidad
-   ```
-3. Commit tus cambios  
-   ```bash
-   git commit -m 'Agregar nueva funcionalidad'
-   ```
-4. Push a la rama  
-   ```bash
-   git push origin feature/nueva-funcionalidad
-   ```
-5. Abre un Pull Request
+¡Las contribuciones son bienvenidas! Por favor
 
 ---
 

@@ -82,20 +82,26 @@ session.findById("wnd[0]").sendVKey 0'''
 
     def _base_ini(self, pep: str, mov_type: str):
         if mov_type == '221':
+            # The PEP is the code that identifies the project in SAP
             return f'''session.findById("wnd[0]/usr/txtRKPF-WEMPF").text = "{self.sap_user}"
-session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:9000/ctxtCOBL-PS_POSID").text = "{pep}"
+session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:9000/ctxtCOBL-PS_POSID").text = "{pep}"  
 session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:9000/ctxtCOBL-FKBER").text = "NO_PRESUP"'''
+        
         elif mov_type == '201':
+            # The PEP is the code that identifies what project will be used in SAP, for me this goes to the proyecto_201_map dictonary
+            # it takes 2 codes to identify the area function and the pep
             area_func = self.proyecto_201_map.get(pep, "Default if not found")
             return f'''session.findById("wnd[0]/usr/txtRKPF-WEMPF").text = "{self.sap_user}"
 session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:1013/ctxtCOBL-KOSTL").text = "{pep}"
 session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:1013/ctxtCOBL-FKBER").text = "{area_func}"'''
+
         elif mov_type == '222': # Devolución
             return f'''session.findById("wnd[0]/usr/ctxtKM07R-SAKNR").text = "2303000000"
 session.findById("wnd[0]/usr/txtRKPF-WEMPF").text = "{self.sap_user}"
 session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:9000/ctxtCOBL-PS_POSID").text = "{pep}"
 session.findById("wnd[0]/usr/subBLOCK:SAPLKACB:9000/ctxtCOBL-FKBER").text = "NO_PRESUP"'''
         # Agrega el caso para 202 si es diferente de 222
+
         else: # Devolución 202
             area_func = self.proyecto_201_map.get(pep, "Default if not found")
             return f'''session.findById("wnd[0]/usr/txtRKPF-WEMPF").text = "{self.sap_user}"

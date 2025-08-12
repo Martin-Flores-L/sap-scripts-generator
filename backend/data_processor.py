@@ -92,7 +92,7 @@ class DataProcessor:
         }
         return operations
 
-
+    #If users want to split by project type, use this method
     def split_by_project_type(self, df: pd.DataFrame) -> dict:
         """Divide el DataFrame para proyectos 201 y 221."""
         proyectos_201 = ['EDIFICIOS - BROWNFIELD', 'MERMAS 2025', 'DIFERENCIAS 2025', 'VENTAS']
@@ -100,7 +100,7 @@ class DataProcessor:
         df_221 = df[~df['PROYECTO'].isin(proyectos_201)]
         return {'201': df_201, '221': df_221}
     
-    #Test
+    #If users want to split by movement type, use this method
     def split_by_movement_type(self, df: pd.DataFrame) -> dict:
         """Divide el DataFrame para proyectos 201 y 221."""
         

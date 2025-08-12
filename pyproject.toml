@@ -67,10 +67,8 @@ prod = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/tu-usuario/sap-scripts-generator"
-Repository = "https://github.com/tu-usuario/sap-scripts-generator"
-Issues = "https://github.com/tu-usuario/sap-scripts-generator/issues"
-Documentation = "https://github.com/tu-usuario/sap-scripts-generator/blob/main/README.md"
+Repository = "https://github.com/Martin-Flores-L/sap-scripts-generator"
+
 
 [project.scripts]
 # Scripts de línea de comandos opcionales
