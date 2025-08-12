@@ -70,7 +70,9 @@ problema.
 - Soporte para movimientos 201 (entrada) y 221 (salida)
 - 
 ![Ejemplo plantilla para emisiones cargando un .xlsx a la aplicación]
-imagereadme_images\test_201_221.png.jpg
+
+<img width="1851" height="321" alt="Plantilla_xlsx_emisiones" src="https://github.com/user-attachments/assets/ae2f4c92-463a-482a-86f5-4a8e3400cea1" />
+
 
 https://github.com/user-attachments/assets/b4943828-b832-4802-bf58-13da330e8928
 
