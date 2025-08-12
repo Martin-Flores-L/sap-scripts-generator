@@ -65,18 +65,14 @@ problema.
 
 ### Emisión de Vales de Reserva (221/201)
 - Carga archivos Excel con datos de materiales
-
+- Personaliza los datos necesarios para la generación de scripts
+- Genera scripts VBS para crear vales en SAP MB21
+- Soporte para movimientos 201 (entrada) y 221 (salida)
+- 
 ![Ejemplo plantilla para emisiones cargando un .xlsx a la aplicación]
 imagereadme_images\test_201_221.png.jpg
-- Personaliza los datos necesarios para la generación de scripts
 
-https://github.com/user-attachments/assets/342e5a1a-e7ff-419d-837a-cf1888a8cbad
-
-- Genera scripts VBS para crear vales en SAP MB21
-
-
-- Soporte para movimientos 201 (entrada) y 221 (salida)
-
+https://github.com/user-attachments/assets/b4943828-b832-4802-bf58-13da330e8928
 
 
 ### Modificaciones de Vales (Próximamente)
