@@ -77,6 +77,9 @@ problema.
 https://github.com/user-attachments/assets/b4943828-b832-4802-bf58-13da330e8928
 
 
+https://github.com/user-attachments/assets/026e3e95-8e60-4655-ad28-97eeda4ef928
+
+
 ### Modificaciones de Vales (Próximamente)
 - Adición, modificación y eliminación de líneas
 - Finalización y devolución de vales
