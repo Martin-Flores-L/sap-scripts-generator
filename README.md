@@ -67,7 +67,7 @@ problema.
 - Carga archivos Excel con datos de materiales
 - Personaliza los datos necesarios para la generación de scripts
 - Genera scripts VBS para crear vales en SAP MB21
-- Soporte para movimientos 201 (entrada) y 221 (salida)
+- Soporte para movimientos 221 y 201
 - 
 ![Ejemplo plantilla para emisiones cargando un .xlsx a la aplicación]
 
