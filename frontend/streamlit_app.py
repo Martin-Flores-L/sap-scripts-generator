@@ -243,8 +243,8 @@ def render_user_config_sidebar():
         )
         
         save_dir = st.text_input(
-            "Ruta de guardado", 
-            value=r"C:\Scripts",
+            "Ruta de guardado : Ten en cuenta que debes tener el directorio creado previamente y nombrar tu archivo con la extensión .txt", 
+            value=r"C:\Descargas\Reservas_creadas_SAP.txt",
             help="Directorio donde se guardarán los archivos VBS"
         )
         
